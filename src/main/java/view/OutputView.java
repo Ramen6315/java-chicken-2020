@@ -9,7 +9,8 @@ public class OutputView {
     private static final String TOP_LINE = "┌ ─ ┐";
     private static final String TABLE_FORMAT = "| %s |";
     private static final String BOTTOM_LINE = "└ ─ ┘";
-    private static final String SELECT_POS_MENU_VALUE = "##메인 화면 \n 1 - 주문등록\n 2 - 결제하기\n 3 - 프로그램 종료\n";
+    private static final String SELECT_POS_VALUE = "##메인 화면 \n 1 - 주문등록\n 2 - 결제하기\n 3 - 프로그램 종료\n";
+    private static final String INPUT_POS_VALUE = "## 원하는 기능을 선택하세요";
 
     public static void printTables(final List<Table> tables) {
         System.out.println("## 테이블 목록");
@@ -39,7 +40,11 @@ public class OutputView {
         System.out.println();
     }
 
-    public static void printSelectPosMenu() {
-        System.out.println(SELECT_POS_MENU_VALUE);
+    public static void printPosMenu() {
+        System.out.println(SELECT_POS_VALUE);
+    }
+
+    public static void printSelecPosValue() {
+        System.out.println(INPUT_POS_VALUE);
     }
 }
