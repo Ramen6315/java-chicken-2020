@@ -31,4 +31,5 @@ class ValidInputValueTest {
         String tableValue = "7";
         Assertions.assertThatThrownBy(() -> ValidInputValue.checkTableValue(tableValue));
     }
+
 }
