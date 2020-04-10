@@ -1,12 +1,12 @@
 package domain;
 
-import java.util.Collections;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
 public class Table {
     private final int number;
-    private Map<Menu, Integer> menusInTable;
+    private Map<Menu, Integer> menusInTable = new HashMap<>();
 
     public Table(final int number) {
         this.number = number;
@@ -36,11 +36,12 @@ public class Table {
     }
 
     public void orderMenu(Menu menu, int menuAmount) {
+       if(!menusInTable.containsKey(menu)) {
+           menusInTable.put(menu, menuAmount);
+           return;
+       }
         if(menusInTable.get(menu) + menuAmount > 99) {
-            throw new IllegalArgumentException("총합이 99를 넘습니다.다시 입력해주세요");
-        }
-        if(!menusInTable.containsKey(menu)) {
-            menusInTable.put(menu, menuAmount);
+            throw new IllegalArgumentException("총 수량이 99초과하였습니");
         }
 
         menusInTable.put(menu, menusInTable.get(menu) + menuAmount);

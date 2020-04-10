@@ -53,4 +53,8 @@ public class OutputView {
     public static void printSelectMenu() {
         System.out.println("## 등록할 메뉴를 선택하세요");
     }
+
+    public static void printMenuAmount() {
+        System.out.println("## 수량을 입력해주세요");
+    }
 }
