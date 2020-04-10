@@ -22,7 +22,7 @@ public class ValidInputValue {
 
     private static int checkMenuValueRange(String posMenuValue) {
         int posMenuNumber = Integer.parseInt(posMenuValue);
-        if(posMenuNumber < MIN_POS_MENU_VALUE || posMenuNumber > MAX_POS_MENU_VALUE) {
+        if (posMenuNumber < MIN_POS_MENU_VALUE || posMenuNumber > MAX_POS_MENU_VALUE) {
             throw new IllegalArgumentException();
         }
         return posMenuNumber;
@@ -32,7 +32,7 @@ public class ValidInputValue {
         int tableNumber;
         try {
             tableNumber = checkTableValueRange(tableValue);
-        } catch(Exception e) {
+        } catch (Exception e) {
             throw new IllegalArgumentException(WRONG_TABLE_NUMBER_MESSAGE);
         }
         return tableNumber;
@@ -40,7 +40,7 @@ public class ValidInputValue {
 
     private static int checkTableValueRange(String tableValue) {
         int tableNumber = Integer.parseInt(tableValue);
-        if(tableNumber == 7 || (tableNumber < 1 || tableNumber > 8)) {
+        if (tableNumber == 7 || (tableNumber < 1 || tableNumber > 8)) {
             throw new IllegalArgumentException("테이블 번호는 1,2,3,4,5,6,8번 만 가능합니다");
         }
         return tableNumber;
@@ -50,7 +50,7 @@ public class ValidInputValue {
         Menu menu;
         try {
             menu = checkMenuNumberRange(Integer.parseInt(menuValue), menus);
-        } catch(Exception e) {
+        } catch (Exception e) {
             throw new IllegalArgumentException("올바른 메뉴번호를 입력해주십시오");
         }
         return menu;
@@ -67,14 +67,14 @@ public class ValidInputValue {
         int menuAmount;
         try {
             menuAmount = checkOverAmount(Integer.parseInt(menuAmountValue));
-        } catch(Exception e) {
+        } catch (Exception e) {
             throw new IllegalArgumentException("올바른 메뉴 수량을 입력해주세요");
         }
         return menuAmount;
     }
 
     private static int checkOverAmount(int parseInt) {
-        if(parseInt > MAX_MENU_AMOUNT) {
+        if (parseInt > MAX_MENU_AMOUNT) {
             throw new IllegalArgumentException();
         }
         return parseInt;

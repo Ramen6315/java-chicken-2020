@@ -7,6 +7,7 @@ import java.util.Objects;
 public class Table {
     private static final int NONE_ORDER = 0;
     private static final int MAX_MENU_AMOUNT = 99;
+    private static final int DISCOUNT_UNIT = 10;
     private final int number;
     private Map<Menu, Integer> menusInTable = new HashMap<>();
 
@@ -38,12 +39,11 @@ public class Table {
     }
 
     public void orderMenu(Menu menu, int menuAmount) {
-       if(!menusInTable.containsKey(menu)) {
-           menusInTable.put(menu, menuAmount);
-           System.out.println(menusInTable.size());
-           return;
-       }
-        if(menusInTable.get(menu) + menuAmount > MAX_MENU_AMOUNT) {
+        if (!menusInTable.containsKey(menu)) {
+            menusInTable.put(menu, menuAmount);
+            return;
+        }
+        if (menusInTable.get(menu) + menuAmount > MAX_MENU_AMOUNT) {
             throw new IllegalArgumentException("총 수량이 99초과하였습니");
         }
 
@@ -54,5 +54,18 @@ public class Table {
 
     public boolean size() {
         return menusInTable.size() > NONE_ORDER;
+    }
+
+    public int calculateCreditCard() {
+        int bill;
+        int amount = 0;
+        int result = 0;
+        for (Menu menu : menusInTable.keySet()) {
+            bill = menusInTable.get(menu) * menu.getPrice();
+            amount += menusInTable.get(menu);
+            result += bill - (10000 * amount / DISCOUNT_UNIT);
+        }
+
+        return result;
     }
 }

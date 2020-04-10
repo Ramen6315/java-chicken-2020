@@ -20,14 +20,14 @@ public class OutputView {
         final int size = tables.tableSize();
         printLine(TOP_LINE, size);
         printTableNumbers(tables.getTables());
-        for(Table table : tables.getTables()) {
+        for (Table table : tables.getTables()) {
             isOrderTable(table);
         }
         System.out.println();
     }
 
     private static void isOrderTable(Table table) {
-        if(table.size()) {
+        if (table.size()) {
             System.out.print(BOTTOM_ORDER_LINE);
             return;
         }

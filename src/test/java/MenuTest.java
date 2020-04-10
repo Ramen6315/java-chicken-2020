@@ -8,14 +8,14 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-public class MenuTest {
+class MenuTest {
 
     @Test
     @DisplayName("정수 이외의 값이 입력될경우 익셉션을 발생한다")
     void notIntegerMenuValueTest() {
         String input = "a";
         Menus menus = new Menus();
-        assertThatThrownBy(() -> ValidInputValue.checkMenuValue(input,menus));
+        assertThatThrownBy(() -> ValidInputValue.checkMenuValue(input, menus));
     }
 
     @Test
@@ -23,14 +23,14 @@ public class MenuTest {
     void notCorrectIntegerMenuValueTest() {
         String input = "40";
         Menus menus = new Menus();
-        assertThatThrownBy(() -> ValidInputValue.checkMenuValue(input,menus));
+        assertThatThrownBy(() -> ValidInputValue.checkMenuValue(input, menus));
     }
 
     @Test
     @DisplayName("등록할 메뉴가 있을경우")
     void seletMenuTest() {
         Menus menus = new Menus();
-        Menu menu = new Menu(1, "후라이", Category.CHICKEN,16000);
+        Menu menu = new Menu(1, "후라이", Category.CHICKEN, 16000);
         assertThat(menus.selectMenu(1)).isEqualTo(menu);
     }
 
