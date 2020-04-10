@@ -1,5 +1,6 @@
 package domain;
 
+import java.util.Collections;
 import java.util.List;
 
 public class Tables {
@@ -14,5 +15,13 @@ public class Tables {
                 .filter(table -> table.isSameTable(tableNumber))
                 .findAny()
                 .orElseThrow(IllegalAccessError::new);
+    }
+
+    public int tableSize() {
+        return tables.size();
+    }
+
+    public List<Table> getTables() {
+        return Collections.unmodifiableList(tables);
     }
 }

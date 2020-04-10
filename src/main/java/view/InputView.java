@@ -13,4 +13,8 @@ public class InputView {
     public static String inputPosMenuNumber() {
         return scanner.nextLine();
     }
+
+    public static String inputMenuNumber() {
+        return scanner.nextLine();
+    }
 }
