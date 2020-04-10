@@ -1,12 +1,15 @@
 package domain.validation;
 
+import domain.Menu;
+import domain.Menus;
+
 public class ValidInputValue {
     private static final int MIN_POS_MENU_VALUE = 1;
     private static final int MAX_POS_MENU_VALUE = 3;
     private static final String WRONG_TABLE_NUMBER_MESSAGE = "테이블 번호는 1,2,3,4,5,6,8번 만 가능합니다";
     private static final String WRONG_POS_NUMBER_MESSAGE = "포스 메뉴는 1,2,3번중 하나 이어야 합니다.";
 
-    public static int checkMenuValue(String posMenuValue) {
+    public static int checkPosMenuValue(String posMenuValue) {
         int posMenuNumber;
         try {
             posMenuNumber = checkMenuValueRange(posMenuValue);
@@ -40,5 +43,22 @@ public class ValidInputValue {
             throw new IllegalArgumentException("테이블 번호는 1,2,3,4,5,6,8번 만 가능합니다");
         }
         return tableNumber;
+    }
+
+    public static Menu checkMenuValue(String menuValue, Menus menus) {
+        Menu menu;
+        try {
+            menu = checkMenuNumberRange(Integer.parseInt(menuValue), menus);
+        } catch(Exception e) {
+            throw new IllegalArgumentException("올바른 메뉴번호를 입력해주십시오");
+        }
+        return menu;
+    }
+
+    private static Menu checkMenuNumberRange(int menuNumber, Menus menus) {
+        return menus.getMenus().stream()
+                .filter(menu -> menu.isSameMenuNumber(menuNumber))
+                .findAny()
+                .orElseThrow(IllegalAccessError::new);
     }
 }

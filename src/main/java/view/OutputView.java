@@ -1,6 +1,7 @@
 package view;
 
 import domain.Menu;
+import domain.Menus;
 import domain.Table;
 import domain.Tables;
 
@@ -21,8 +22,8 @@ public class OutputView {
         printLine(BOTTOM_LINE, size);
     }
 
-    public static void printMenus(final List<Menu> menus) {
-        for (final Menu menu : menus) {
+    public static void printMenus(final Menus menus) {
+        for (final Menu menu : menus.getMenus()) {
             System.out.println(menu);
         }
     }

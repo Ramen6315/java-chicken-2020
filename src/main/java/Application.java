@@ -1,9 +1,8 @@
-import domain.*;
+import domain.Menus;
+import domain.Tables;
 import domain.validation.ValidInputValue;
 import view.InputView;
 import view.OutputView;
-
-import java.util.List;
 
 public class Application {
     // TODO 구현 진행
@@ -11,12 +10,11 @@ public class Application {
         OutputView.printPosMenu();
         OutputView.printSelectPosValue();
         Tables tables = new Tables();
-        ValidInputValue.checkMenuValue(InputView.inputPosMenuNumber());
+        ValidInputValue.checkPosMenuValue(InputView.inputPosMenuNumber());
         OutputView.printTables(tables);
         final int tableNumber = ValidInputValue.checkTableValue(InputView.inputTableNumber());
-
-
-        final List<Menu> menus = MenuRepository.menus();
+        Menus menus = new Menus();
+        ValidInputValue.checkMenuValue(InputView.inputMenuNumber(), menus);
         OutputView.printMenus(menus);
     }
 }

@@ -1,5 +1,6 @@
 package domain;
 
+import java.util.Collections;
 import java.util.List;
 
 public class Menus {
@@ -7,5 +8,16 @@ public class Menus {
 
     public Menus() {
         menus = MenuRepository.menus();
+    }
+
+    public Menu selectMenu(int menuNumber) {
+        return menus.stream()
+                .filter(menu -> menu.isSameMenuNumber(menuNumber))
+                .findAny()
+                .orElseThrow(IllegalAccessError::new);
+    }
+
+    public List<Menu> getMenus() {
+        return Collections.unmodifiableList(menus);
     }
 }
