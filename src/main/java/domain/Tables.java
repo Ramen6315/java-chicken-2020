@@ -9,5 +9,10 @@ public class Tables {
         this.tables = TableRepository.tables();
     }
 
-
+    public Table chooseTable(int tableNumber) {
+        return tables.stream()
+                .filter(table -> table.isSameTable(tableNumber))
+                .findAny()
+                .orElseThrow(IllegalAccessError::new);
+    }
 }

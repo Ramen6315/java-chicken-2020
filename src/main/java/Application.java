@@ -14,7 +14,7 @@ public class Application {
         ValidInputValue.checkMenuValue(InputView.inputPosMenuNumber());
         OutputView.printTables(tables);
         final int tableNumber = ValidInputValue.checkTableValue(InputView.inputTableNumber());
-
+        Tables chickenHouseTables = new Tables();
 
         final List<Menu> menus = MenuRepository.menus();
         OutputView.printMenus(menus);
