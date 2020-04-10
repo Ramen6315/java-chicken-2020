@@ -1,4 +1,6 @@
-package domain;
+package domain.chickenhouse;
+
+import domain.repository.TableRepository;
 
 import java.util.Collections;
 import java.util.List;

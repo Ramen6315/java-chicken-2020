@@ -1,8 +1,7 @@
-import domain.Category;
-import domain.Menu;
-import domain.Menus;
+import domain.chickenhouse.Category;
+import domain.chickenhouse.Menu;
+import domain.chickenhouse.Menus;
 import domain.validation.ValidInputValue;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

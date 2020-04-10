@@ -1,5 +1,5 @@
-import domain.Table;
-import domain.Tables;
+import domain.chickenhouse.Table;
+import domain.chickenhouse.Tables;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

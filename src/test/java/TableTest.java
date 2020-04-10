@@ -1,4 +1,4 @@
-import domain.Table;
+import domain.chickenhouse.Table;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

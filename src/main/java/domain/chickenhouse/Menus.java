@@ -1,4 +1,6 @@
-package domain;
+package domain.chickenhouse;
+
+import domain.repository.MenuRepository;
 
 import java.util.Collections;
 import java.util.List;

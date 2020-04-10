@@ -1,13 +1,14 @@
 package domain.validation;
 
-import domain.Menu;
-import domain.Menus;
+import domain.chickenhouse.Menu;
+import domain.chickenhouse.Menus;
 
 public class ValidInputValue {
     private static final int MIN_POS_MENU_VALUE = 1;
     private static final int MAX_POS_MENU_VALUE = 3;
     private static final String WRONG_TABLE_NUMBER_MESSAGE = "테이블 번호는 1,2,3,4,5,6,8번 만 가능합니다";
     private static final String WRONG_POS_NUMBER_MESSAGE = "포스 메뉴는 1,2,3번중 하나 이어야 합니다.";
+    private static final int MAX_MENU_AMOUNT = 99;
 
     public static int checkPosMenuValue(String posMenuValue) {
         int posMenuNumber;
@@ -73,7 +74,7 @@ public class ValidInputValue {
     }
 
     private static int checkOverAmount(int parseInt) {
-        if(parseInt > 99) {
+        if(parseInt > MAX_MENU_AMOUNT) {
             throw new IllegalArgumentException();
         }
         return parseInt;

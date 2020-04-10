@@ -1,9 +1,9 @@
 package view;
 
-import domain.Menu;
-import domain.Menus;
-import domain.Table;
-import domain.Tables;
+import domain.chickenhouse.Menu;
+import domain.chickenhouse.Menus;
+import domain.chickenhouse.Table;
+import domain.chickenhouse.Tables;
 
 import java.util.List;
 
@@ -11,6 +11,7 @@ public class OutputView {
     private static final String TOP_LINE = "┌ ─ ┐";
     private static final String TABLE_FORMAT = "| %s |";
     private static final String BOTTOM_LINE = "└ ─ ┘";
+    private static final String BOTTOM_ORDER_LINE = "└ * ┘";
     private static final String SELECT_POS_VALUE = "##메인 화면 \n 1 - 주문등록\n 2 - 결제하기\n 3 - 프로그램 종료\n";
     private static final String INPUT_POS_VALUE = "## 원하는 기능을 선택하세요";
 
@@ -19,7 +20,18 @@ public class OutputView {
         final int size = tables.tableSize();
         printLine(TOP_LINE, size);
         printTableNumbers(tables.getTables());
-        printLine(BOTTOM_LINE, size);
+        for(Table table : tables.getTables()) {
+            isOrderTable(table);
+        }
+        System.out.println();
+    }
+
+    private static void isOrderTable(Table table) {
+        if(table.size()) {
+            System.out.print(BOTTOM_ORDER_LINE);
+            return;
+        }
+        System.out.print(BOTTOM_LINE);
     }
 
     public static void printMenus(final Menus menus) {

@@ -1,10 +1,12 @@
-package domain;
+package domain.chickenhouse;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
 public class Table {
+    private static final int NONE_ORDER = 0;
+    private static final int MAX_MENU_AMOUNT = 99;
     private final int number;
     private Map<Menu, Integer> menusInTable = new HashMap<>();
 
@@ -38,12 +40,19 @@ public class Table {
     public void orderMenu(Menu menu, int menuAmount) {
        if(!menusInTable.containsKey(menu)) {
            menusInTable.put(menu, menuAmount);
+           System.out.println(menusInTable.size());
            return;
        }
-        if(menusInTable.get(menu) + menuAmount > 99) {
+        if(menusInTable.get(menu) + menuAmount > MAX_MENU_AMOUNT) {
             throw new IllegalArgumentException("총 수량이 99초과하였습니");
         }
 
         menusInTable.put(menu, menusInTable.get(menu) + menuAmount);
+        System.out.println(menusInTable.size());
+
+    }
+
+    public boolean size() {
+        return menusInTable.size() > NONE_ORDER;
     }
 }
