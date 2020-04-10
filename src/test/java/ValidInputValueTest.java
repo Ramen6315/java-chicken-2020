@@ -32,4 +32,18 @@ class ValidInputValueTest {
         Assertions.assertThatThrownBy(() -> ValidInputValue.checkTableValue(tableValue));
     }
 
+    @Test
+    @DisplayName("메뉴 수량이 정수 이외의 값이 입력되면 익셉션을 발생한다")
+    void menuAmountTest() {
+        String menuAmount = "a";
+        Assertions.assertThatThrownBy(() -> ValidInputValue.checkMenuAmount(menuAmount));
+    }
+
+    @Test
+    @DisplayName("메뉴 수량이 99이상의 값이 입력되면 익셉션을 발생한다")
+    void menuAmountOverNumberTest() {
+        String menuAmount = "100";
+        Assertions.assertThatThrownBy(() -> ValidInputValue.checkMenuAmount(menuAmount));
+    }
+
 }

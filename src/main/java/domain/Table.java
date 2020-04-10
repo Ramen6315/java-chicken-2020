@@ -1,11 +1,12 @@
 package domain;
 
-import java.util.List;
+import java.util.Collections;
+import java.util.Map;
 import java.util.Objects;
 
 public class Table {
     private final int number;
-    private List<Menu> menus = MenuRepository.menus();
+    private Map<Menu, Integer> menusInTable;
 
     public Table(final int number) {
         this.number = number;
@@ -26,11 +27,22 @@ public class Table {
         if (o == null || getClass() != o.getClass()) return false;
         Table table = (Table) o;
         return number == table.number &&
-                Objects.equals(menus, table.menus);
+                Objects.equals(menusInTable, table.menusInTable);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(number, menus);
+        return Objects.hash(number, menusInTable);
+    }
+
+    public void orderMenu(Menu menu, int menuAmount) {
+        if(menusInTable.get(menu) + menuAmount > 99) {
+            throw new IllegalArgumentException("총합이 99를 넘습니다.다시 입력해주세요");
+        }
+        if(!menusInTable.containsKey(menu)) {
+            menusInTable.put(menu, menuAmount);
+        }
+
+        menusInTable.put(menu, menusInTable.get(menu) + menuAmount);
     }
 }

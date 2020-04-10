@@ -17,4 +17,6 @@ public class InputView {
     public static String inputMenuNumber() {
         return scanner.nextLine();
     }
+
+    public static String inputMenuAmount() { return scanner.nextLine(); }
 }

@@ -61,4 +61,21 @@ public class ValidInputValue {
                 .findAny()
                 .orElseThrow(IllegalAccessError::new);
     }
+
+    public static int checkMenuAmount(String menuAmountValue) {
+        int menuAmount;
+        try {
+            menuAmount = checkOverAmount(Integer.parseInt(menuAmountValue));
+        } catch(Exception e) {
+            throw new IllegalArgumentException("올바른 메뉴 수량을 입력해주세요");
+        }
+        return menuAmount;
+    }
+
+    private static int checkOverAmount(int parseInt) {
+        if(parseInt > 99) {
+            throw new IllegalArgumentException();
+        }
+        return parseInt;
+    }
 }
