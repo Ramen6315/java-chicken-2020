@@ -15,6 +15,7 @@ public class Application {
         OutputView.printTables(tables);
         final int tableNumber = ValidInputValue.checkTableValue(InputView.inputTableNumber());
 
+
         final List<Menu> menus = MenuRepository.menus();
         OutputView.printMenus(menus);
     }
